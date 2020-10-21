@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  background: #161616;
+  cursor: none;
+  overflow: hidden;
+}
+
+.container1 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before {
+    content: "";
+    background: #fff;
+    width: 100%;
+    height: 0%;
+    position: absolute;
+    bottom: 0;
+    transform-origin: bottom;
+    // transition: 3s cubic-bezier(.22,.73,.92,.48);
+    animation: splash 3s cubic-bezier(.8, .2, .2, .8) forwards;
+  }
+}
+
+span {
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 24px;
+  color: #fff;
+  letter-spacing: 0.8rem;
+  /*   filter: blur(3px); */
+  animation: blurMe 1.4s ease-in-out forwards;
+  opacity: 0;
+}
+
+@for $i from 1 through 6 {
+  span:nth-child(2n + #{$i}) {
+    animation-delay: calc(2s + 200ms * #{$i});
+  }
+}
+
+.cursor {
+  position: fixed;
+  background-color: #fff;
+  padding: 0.3rem;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  opacity: 0;
+  transition: transform 250ms ease, left 60ms linear, top 60ms linear;
+  animation: revealCursor 1s ease 5s forwards;
+}
+
+span:hover ~ .cursor {
+  transform: scale(3);
+}
+
+@keyframes blurMe {
+  0% {
+    filter: blur(10px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes splash {
+  0% {
+    height: 0%;
+  }
+  50% {
+    height: 100%;
+  }
+  100% {
+    top: 0;
+
+    height: 0%;
+  }
+}
+
+@keyframes revealCursor {
+  100% {
+    opacity: 1;
+  }
+}
+/* index body */
+@font-face {
+ font-family: bebas kai;
+ src: url(fonts/BebasKai.ttf);
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+ font-family: Requiem;
+  src: url(fonts/Requiem.ttf);
+  font-weight: 100;
+  font-style: normal;
+}
+#particles-js{
+  background-color: #ff80bf;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  /* overflow: hidden; */
+}
+.header{
+    position:fixed;
+    top: 0;
+    width: 100%;
+    background: #ff0080;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    height: auto;
+    color:white;
+    font-weight: bold;
+    font-family:Requiem;
+    text-align: center;
+}
+.container{
+  position: absolute;
+  width: 40%;
+  background:#ff3399;
+  margin-top: 10%;
+  margin-left: 30%;
+  text-align: center;
+  border-radius: 25px;
+  padding-top: 25px;
+  padding-bottom:15px;
+  box-shadow: 0 0 6px 0 white;
+}
+#label{
+  font-family: bebas kai;
+  font-size: 20px;
+  color: #33001a;
+  font-weight: bold;
+}
+#sel1 , #sel2{
+  padding: 0px 0px 0px 10px;
+  border:none;
+  font-family:bebas kai;
+  font-weight: bolder;
+  font-size: 20px;
+}
+#button{
+  background:  #ff0080;
+  border: 0px solid black;
+  font-family: bebas kai;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+#button :hover{
+  background:  #b30059;
+  box-shadow: 0 0 6px 0 white;
+}
+.footer{
+  font-family: bebas kai;
+  height: 45px;
+  display: inline;
+  position: absolute;
+  top: 97%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  width: 100%;
+  bottom: 0px;
+  font-size:15px;
+  padding-top: 6px;
+  padding-left: 3px;
+  color: white;
+  background: black;
+}
+
+
+a:hover{
+  text-decoration: none;
+}
+@media(max-width:420px){
+  .header{
+      width: 100%;
+      height: auto;
+  }
+  .container{
+    width: 100%;
+    border-radius: 0px;
+    box-shadow: none;
+    margin-top:125px;
+    margin-left:auto;
+  }
+  .book_shelf{
+    margin-top: 150px;
+    padding: 5% 3px;
+  }
+  .book{
+    margin-top: 20px;
+    width: 150px;
+    height: 240px;
+    background-position: -13px 0px;
+  }
+  .book p{
+     font-family:Requiem;
+     font-size: 15px;
+     color: white;
+     letter-spacing: 1px;
+  }
+
+}
+@media (min-width:420px) and (max-width:768px){
+   .container{
+     width: 80%;
+     font-size: 20px;
+     margin-top:120px;
+     margin-left:55px;
+   }
+}
+@media (min-width:768px) and (max-width:1024px){
+   .container{
+     width: 90%;
+     font-size: 20px;
+     margin-top: 120px;
+     margin-left: 40px;
+   }
+}
+
+/* estra fitting  */
+h2{
+  text-align: center;
+  font-family: Requiem;
+  width:50%;
+  margin-top:200px;
+  color: black;
+  background: white;
+  text-align: center;
+  text-transform: uppercase;
+}
